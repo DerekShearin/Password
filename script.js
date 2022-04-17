@@ -15,20 +15,20 @@ var arrUppers = [ "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 
 function createPassword () {
 if (confirm("Would you like to make a password?")) {
-  // console.log (true);
 
-  //Set password length
+  //Sets password length:
   var passwordLength = window.prompt(
     "How long would you like your password? - You can choose between 8 and 128 characters."
   );
-  //verify password length is valid:
-  { console.log(passwordLength) }
-  if (passwordLength < 8 || passwordLength > 128) {
-    window.alert("password must be between 8 and 128 characters!");
+  //verify password length is between 8-128 length and not null :
+  if (passwordLength < 8 || passwordLength > 128 ) {
+    window.alert("Password must be between 8 and 128 characters!");
   }
   if (passwordLength === "" || passwordLength === null) {
     window.alert("You need to provide a valid answer!");
   }
+ 
+
 
   // Confirm useNumber
   if (confirm("Would you like to use numbers?")) {
@@ -49,9 +49,8 @@ if (confirm("Would you like to make a password?")) {
   if (confirm("Would you like to use UPPERCASE?")) {
     (useUppers = true);
   }
-  
+  // defines useable characters based on selections above:
   function useCharacter () {
-    console.log("Running!!!!!!!")
     if(useNumbers === true) {
       characterSelection = characterSelection.concat(arrNumbers)
       console.log(characterSelection)
@@ -66,7 +65,7 @@ if (confirm("Would you like to make a password?")) {
       console.log(characterSelection)
     }
     var randomItem = ""
-    
+    // for loop to iterate for each number as defined in passwordLength
     for (let index = 0; index < passwordLength; index++) {
       randomItem += characterSelection[Math.floor(Math.random()*characterSelection.length)];
       console.log(randomItem)
